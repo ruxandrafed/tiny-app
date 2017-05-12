@@ -11,11 +11,12 @@
 
 <main>
   <div class="jumbotron">
-    <h1>Shortened URLs</h1>
+    <h1>Shortened URL</h1>
   </div>
   <div class="container">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="http://localhost:8080/urls/">URLs</a></li>
+      <li class="breadcrumb-item active"><%= shortURL %></li>
     </ol>
     <table class="table table-hover">
       <thead>
@@ -26,16 +27,12 @@
         <th></th>
       </tr> </thead>
       <tbody>
-      <% let index = 1 %>
-      <% Object.keys(urls).forEach(function(id){ %>
         <tr>
-        <th scope="row"><%= index %></th>
-        <td><a href="<%= urls[id] %>"><%= urls[id] %></a></td>
-        <td><a href="http://localhost:8080/<%= id %>">http://localhost:8080/<%= id %></a></td>
-        <td><a href="http://localhost:8080/urls/<%= id %>">edit</a></td>
+        <th scope="row"></th>
+        <td><a href="<%= longURL %>"><%= longURL %></a></td>
+        <td><a href="http://localhost:8080/urls/<%= shortURL %>">http://localhost:8080/urls/<%= shortURL %></a></td>
+        <td><a href="">edit</a></td>
         </tr>
-        <% index++ %>
-        <% }); %>
       </tbody>
     </table>
   </div>
