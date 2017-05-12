@@ -48,6 +48,11 @@ app.get("/urls", (req, res) => {
   res.render("urls_index", templateVars);
 });
 
+app.get("/u/:shortURL", (req, res) => {
+  const longUrl = urlDatabase[req.params.shortURL];
+  res.redirect(longUrl);
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
 });
