@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ./partials/head %>
+</head>
+<body class="container">
+
+<header>
+  <% include ./partials/header %>
+</header>
+
+<main>
+  <div class="jumbotron">
+    <h1>Shortened URLs</h1>
+  </div>
+  <div class="container">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Original URL</th>
+        <th>Shortened URL</th>
+        <th></th>
+      </tr> </thead>
+      <tbody>
+      <% let index = 1 %>
+      <% Object.keys(urls).forEach(function(key){ %>
+        <tr>
+        <th scope="row"><%= index %></th>
+        <td><a href="http://www.google.com"><%= urls[key] %></a></td>
+        <td><a href="http://www.goo.gl">http://localhost:8080/<%= key %></a></td>
+        <td><a href="">edit</a></td>
+        </tr>
+        <% index++ %>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<footer>
+  <% include ./partials/footer %>
+</footer>
+
+</body>
+</html>

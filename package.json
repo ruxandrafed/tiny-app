@@ -1,0 +1,23 @@
+{
+  "name": "tiny-app",
+  "version": "1.0.0",
+  "description": "URL shortener app - NodeJS, Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruxandrafed/tiny-app.git"
+  },
+  "author": "Ruxandra Fediuc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruxandrafed/tiny-app/issues"
+  },
+  "homepage": "https://github.com/ruxandrafed/tiny-app#readme",
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.2"
+  }
+}
