@@ -10,21 +10,20 @@
 </header>
 
 <main>
-  <div class="jumbotron">
-    <h1>Shortened URLs</h1>
-  </div>
-  <div class="container">
+  <div class="container-fluid">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="http://localhost:8080/urls/">URLs</a></li>
     </ol>
     <table class="table table-hover">
       <thead>
-      <tr>
-        <th>#</th>
-        <th>Original URL</th>
-        <th>Shortened URL</th>
-        <th></th>
-      </tr> </thead>
+        <tr>
+          <th>#</th>
+          <th>Original URL</th>
+          <th>Shortened URL</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
       <tbody>
       <% let index = 1 %>
       <% Object.keys(urls).forEach(function(id){ %>
@@ -32,7 +31,17 @@
         <th scope="row"><%= index %></th>
         <td><a href="<%= urls[id] %>"><%= urls[id] %></a></td>
         <td><a href="http://localhost:8080/u/<%= id %>">http://localhost:8080/u/<%= id %></a></td>
-        <td><a href="http://localhost:8080/urls/<%= id %>">edit</a></td>
+        <td>
+          <a href="http://localhost:8080/urls/<%= id %>">
+            <button class="btn btn-default" href="http://localhost:8080/urls/<%= id %>">
+              <span class="glyphicon glyphicon-edit"></span> Edit
+            </button>
+          </a>
+        <td>
+          <form method="POST" action="/urls/9sm5xK/delete">
+            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+          </form>
+        </td>
         </tr>
         <% index++ %>
         <% }); %>

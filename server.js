@@ -35,12 +35,17 @@ app.post("/urls", (req, res) => {
   res.redirect("/urls/" + shortUrl);
 });
 
-app.get("/urls/:id", (req, res) => {
+app.get("/urls/:shortURL", (req, res) => {
   let templateVars = {
-    shortURL: req.params.id,
-    longURL: urlDatabase[req.params.id]
+    shortURL: req.params.shortURL,
+    longURL: urlDatabase[req.params.shortURL]
   };
   res.render("urls_show", templateVars);
+});
+
+app.post("/urls/:shortURL", (req, res) => {
+  urlDatabase[req.params.shortURL] = req.body.newLongURL;
+  res.redirect("/urls");
 });
 
 app.get("/urls", (req, res) => {
@@ -51,6 +56,11 @@ app.get("/urls", (req, res) => {
 app.get("/u/:shortURL", (req, res) => {
   const longUrl = urlDatabase[req.params.shortURL];
   res.redirect(longUrl);
+});
+
+app.post("/urls/:shortURL/delete", (req, res) => {
+  delete urlDatabase[req.params.shortURL];
+  res.redirect("/urls");
 });
 
 app.listen(PORT, () => {

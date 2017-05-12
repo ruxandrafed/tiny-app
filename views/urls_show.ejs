@@ -10,28 +10,33 @@
 </header>
 
 <main>
-  <div class="jumbotron">
-    <h1>Shortened URL</h1>
-  </div>
-  <div class="container">
+  <div class="container-fluid">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="http://localhost:8080/urls/">URLs</a></li>
       <li class="breadcrumb-item active">View URL: <%= shortURL %></li>
     </ol>
     <table class="table table-hover">
       <thead>
-      <tr>
-        <th>#</th>
-        <th>Original URL</th>
-        <th>Shortened URL</th>
-        <th></th>
-      </tr> </thead>
+        <tr>
+          <th>#</th>
+          <th>Original URL</th>
+          <th>Shortened URL</th>
+          <th></th>
+        </tr>
+      </thead>
       <tbody>
         <tr>
         <th scope="row"></th>
         <td><a href="<%= longURL %>"><%= longURL %></a></td>
         <td><a href="http://localhost:8080/urls/<%= shortURL %>">http://localhost:8080/urls/<%= shortURL %></a></td>
-        <td><a href="">edit</a></td>
+        <td>
+          <form action="/urls/<%= shortURL %>" method="post">
+            <div class="form-group">
+              <input type="text" class="form-control" id="newLongURL" name="newLongURL" value="<%= longURL %>">
+            </div>
+            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-check"></span> Update</button>
+          </form>
+        </td>
         </tr>
       </tbody>
     </table>
